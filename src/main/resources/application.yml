@@ -52,6 +52,12 @@ langchain4j:
         model-name: qwen-plus
         parameters:
           temperature: 0.7
+      streaming-chat-model:
+        api-key: ${DASH_SCOPE_API_KEY}
+        model-name: qwen-plus
+        parameters:
+          temperature: 0.7
+
   ## dash_scope_deepseek
 #  community:
 #    dashscope:
@@ -64,3 +70,32 @@ spring:
   data:
     mongodb:
       uri: mongodb://localhost:27017/chat_memory_db
+  datasource:
+    url: jdbc:mysql://localhost:3306/ai_chat_db?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+# OpenAPI 3 基本配置
+#springdoc:
+#  swagger-ui:
+#    path: /swagger-ui.html  # Swagger UI 路径
+#    tags-sorter: alpha      # 按字母排序标签
+#    operations-sorter: alpha # 按字母排序接口
+#  api-docs:
+#    path: /v3/api-docs      # OpenAPI 文档路径
+#  group-configs:
+#    - group: 'default'      # 默认分组
+#      paths-to-match: '/**' # 匹配所有路径
+#      packages-to-scan: com.li.controller # 扫描的 Controller 包
+## Knife4j 增强配置
+#knife4j:
+#  enable: true             # 启用 Knife4j 增强功能
+#  setting:
+#    language: zh_cn        # 中文界面
+#    enable-swagger-models: true # 显示模型
+#    enable-footer: false   # 是否显示页脚
+
